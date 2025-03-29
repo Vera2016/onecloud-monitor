@@ -164,7 +164,7 @@ while true; do
   fi
 
   # 获取 /tmp 磁盘使用率
-  tmp_usage=$(df -h | grep '/tmp' | awk '{print $5}' | tr -d '%') # 删除百分号
+  tmp_usage=$(df -h /tmp | grep '/tmp' | awk '{print $5}' | tr -d '%') # 删除百分号
   if [[ -z "$tmp_usage" || ! "$tmp_usage" =~ ^[0-9.]+$ ]]; then
       tmp_usage="N/A"
       echo "Warning: Could not extract valid tmp_usage value." >> "$LOG_PATH"
